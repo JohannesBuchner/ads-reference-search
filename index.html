@@ -1,12 +1,8 @@
+<!doctype html>
 <html>
 <head>
-<title>ADS redirector</title>
-</head>
-<body>
-
-<h1>ADS redirector</h1>
-
-<h3>Examples:</h3>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>ADS search by reference</title>
 <script lang="text/javascript">
 
 function getADSquery(arg) {
@@ -45,17 +41,26 @@ var testqueries = [
   "Brightman+2018",
   "Brightman et al 2010",
 ];
-for(var i = 0; i < testqueries.length; i++) {
-   var query = testqueries[i];
-   document.write("<p>" + query + " --&gt; <a href='" + getADSquery(query) + "'>link</a></p>");
-}
 </script>
+
+</head>
+<body>
+
+<h1>ADS search by reference</h1>
+
+<p>Searches the <a href="https://ui.adsabs.harvard.edu/search/">new ADS</a> by Lastname (year) reference strings.</p>
 
 <form>
 <input type="text" name="q" />
-<input type="submit" value="Submit" />
+<input type="submit" value="Look up in ADS" />
 </form>
 
+<ol>
+	<li>Right-click the field</li>
+	<li>"Add a Keyword for this Search"</li>
+	<li>Set the keyword to ADS</li>
+	<li>Done! Enter into your search bar "ads Lastname et al. (2017)" (without quotes)</li>
+</ol>
 
 <script>
 var url = location.search;
@@ -63,6 +68,13 @@ if (url.startsWith("?q=")) {
    url = getADSquery(decodeURIComponent(url.substr(3).replace(/\+/g, ' ')));
    document.write("<p>Redirecting to <a href='" + url + "'>corresponding ADS query</a></p>");
    window.location.replace(url);
+} else {
+   document.write("<h3>Examples:</h3><ul>");
+   for(var i = 0; i < testqueries.length; i++) {
+       var query = testqueries[i];
+       document.write("<li>&quot;" + query + "&quot; &rarr; <a href='" + getADSquery(query) + "'>link</a></li>");
+   }
+   document.write("</ul>")
 }
 
 </script>

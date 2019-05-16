@@ -1,6 +1,9 @@
 Firefox Keyword Search by Reference for ADS
 =============================================
 
+Background
+-----------
+
 The old Astronomy Database System (ADS) supported searching by reference strings, such as
 
  * Buchner (2014)
@@ -10,6 +13,9 @@ The old Astronomy Database System (ADS) supported searching by reference strings
 This was neat because you could copy this from a paper, put it into the field and get matching papers. Even faster, making a Firefox search keyword for the page, you could enter into the location bar "ads Buchner (2014)" and go directly to the results page.
 
 Alas, the new ADS does not support this (yet). 
+
+What is it?
+------------
 
 **This project provides "Lastname (year)" searches for ADS**
 

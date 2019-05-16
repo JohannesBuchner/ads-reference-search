@@ -13,4 +13,13 @@ Alas, the new ADS does not support this (yet).
 
 In the meantime, you can use https://johannesbuchner.github.io/ads-reference-search/ which translates queries for you and redirects you to the new ADS.
 
+Licence
+=========
+
+BSD 2-clause. Code here: https://github.com/JohannesBuchner/ads-reference-search/blob/gh-pages/index.html
+
+How does it work?
+==================
+
+Javascript parses the input and redirects you to the proper ADS search query. No data is stored on any servers, code is executed in your browser.
 

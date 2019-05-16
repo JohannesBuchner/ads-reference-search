@@ -9,9 +9,15 @@ The old Astronomy Database System (ADS) supported searching by reference strings
 
 This was neat because you could copy this from a paper, put it into the field and get matching papers. Even faster, making a Firefox search keyword for the page, you could enter into the location bar "ads Buchner (2014)" and go directly to the results page.
 
-Alas, the new ADS does not support this (yet).
+Alas, the new ADS does not support this (yet). 
 
-In the meantime, you can use https://johannesbuchner.github.io/ads-reference-search/ which translates queries for you and redirects you to the new ADS.
+**This project provides "Lastname (year)" searches for ADS**
+
+Usage
+======
+
+Enter your reference at https://johannesbuchner.github.io/ads-reference-search/ 
+It translates it into a ADS query and redirects you to ADS.
 
 Licence
 =========

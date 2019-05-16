@@ -6,9 +6,9 @@ Background
 
 The old Astronomy Database System (ADS) supported searching by reference strings, such as
 
- * Buchner (2014)
- * Buchner et al (2017)
- * Buchner & Bauer (2018)
+* Buchner (2014)
+* Buchner et al (2017)
+* Buchner & Bauer (2018)
 
 This was neat because you could copy this from a paper, put it into the field and get matching papers. Even faster, making a Firefox search keyword for the page, you could enter into the location bar "ads Buchner (2014)" and go directly to the results page.
 

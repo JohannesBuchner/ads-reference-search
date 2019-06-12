@@ -19,16 +19,28 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 function getADSquery(arg) {
   year = /\([0-9]{4}\)/.exec(arg);
+  var query = "";
   if (!year) {
     year = / [0-9]{4}/.exec(arg);
   }
   if (!year) {
     year = /[0-9]{4}/.exec(arg);
   }
-  var query = "";
   if (year) {
     arg = arg.replace(year[0], "").trim()
     query = query + " year:" + year[0].replace("(","").replace(")","");
+  }
+  else {
+    year = /\+[0-9]{2}/.exec(arg);
+    if (year) {
+       arg = arg.replace(year[0], "").trim()
+       v = parseInt(year[0].substr(1));
+       if (v < 25) {
+          query = query + " year:20" + year[0].substr(1)
+       } else {
+          query = query + " year:19" + year[0].substr(1)
+       }
+    }
   }
   arg = arg.replace("et al.", "").replace("et al", "").replace("+", "").trim().trim(",").trim();
   var authors = arg.split("/&,/");
@@ -52,6 +64,7 @@ var testqueries = [
   "Baloković et al., 2018",
   "Brightman+2018",
   "Brightman et al 2010",
+  "Kravtsov+14",
 ];
 </script>
 

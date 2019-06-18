@@ -27,18 +27,18 @@ function getADSquery(arg) {
     year = /[0-9]{4}/.exec(arg);
   }
   if (year) {
-    arg = arg.replace(year[0], "").trim()
-    query = query + " year:" + year[0].replace("(","").replace(")","");
+    arg = arg.replace(year[0], "").trim();
+    query = query + " year:" + year[0].replace("(","").replace(")","").trim();
   }
   else {
     year = /\+[0-9]{2}/.exec(arg);
     if (year) {
-       arg = arg.replace(year[0], "").trim()
+       arg = arg.replace(year[0], "").trim();
        v = parseInt(year[0].substr(1));
        if (v < 25) {
-          query = query + " year:20" + year[0].substr(1)
+          query = query + " year:20" + year[0].substr(1);
        } else {
-          query = query + " year:19" + year[0].substr(1)
+          query = query + " year:19" + year[0].substr(1);
        }
     }
   }

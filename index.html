@@ -43,28 +43,39 @@ function getADSquery(arg) {
     }
   }
   arg = arg.replace("et al.", "").replace("et al", "").replace("+", "").trim().trim(",").trim();
-  var authors = arg.split("/&,/");
+  var authors = arg.split(/[&,;]/);
   for (var i = 0; i < authors.length; i++) {
-    if (authors[i] && authors[i].trim().length > 0) {
+    // ADS search needs hyphens for multiple last names
+    author = authors[i].trim().replace(' ', '-')
+    if (author && author.length > 0) {
       if(i == 0) {
-         query = query + ' author:"^' + authors[i] + '"';
+         query = query + ' author:"^' + author + '"';
       } else {
-         query = query + ' author:"' + authors[i] + '"';
+         query = query + ' author:"' + authors + '"';
       }
     }
   }
   
+  if (year) {
+    if (parseInt(year) < 2014) {
+      query = query + " +property:refereed";
+    }
+  }
   return "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query.trim());
 }
 
 var testqueries = [
   "Buchner et al. (2017)",
+  "Buchner & Bauer (2017)",
+  "Buchner, Schulze & Bauer (2017)",
   "Buchner (2014)",
   "Baloković et al (2018)",
   "Baloković et al., 2018",
   "Brightman+2018",
   "Brightman et al 2010",
   "Kravtsov+14",
+  "Baskin & Laor 2018",
+  "Cid Fernandes (2018)"
 ];
 </script>
 

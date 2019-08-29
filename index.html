@@ -78,6 +78,7 @@ var testqueries = [
   "Baskin & Laor 2018",
   "Cid Fernandes (2018)"
 ];
+
 </script>
 
 </head>
@@ -92,11 +93,13 @@ var testqueries = [
 <input type="submit" value="Look up in ADS" />
 </form>
 
+<p>Fast &amp; convenient access from the browser bar:
 <ol>
-	<li>Right-click the field</li>
+	<li>Firefox: Right-click the field</li>
 	<li>"Add a Keyword for this Search"</li>
-	<li>Set the keyword to ADS</li>
+	<li>Set the keyword to ads</li>
 	<li>Done! Enter into your search bar "ads Lastname et al. (2017)" (without quotes)</li>
+  <li>In Chrome go to chrome://settings/searchEngines, add url https://johannesbuchner.github.io/ads-reference-search/?q=%s</li>
 </ol>
 
 <script>
@@ -113,7 +116,6 @@ if (url.startsWith("?q=")) {
    }
    document.write("</ul>")
 }
-
 </script>
 
 A project by Johannes Buchner. Code at <a href="https://github.com/JohannesBuchner/ads-reference-search">https://github.com/JohannesBuchner/ads-reference-search</a>.

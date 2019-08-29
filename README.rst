@@ -1,6 +1,8 @@
 Firefox Keyword Search by Reference for ADS
 =============================================
 
+**This project provides "Lastname (year)" searches for ADS**
+
 Background
 -----------
 
@@ -16,16 +18,28 @@ This was neat because you could copy this from a paper, put it into the field an
 
 Alas, the new ADS does not support this (yet). 
 
-What is it?
-------------
-
-**This project provides "Lastname (year)" searches for ADS**
-
 Usage
 ======
 
 Enter your reference at https://johannesbuchner.github.io/ads-reference-search/ 
 It translates it into a ADS query and redirects you to ADS.
+
+Keyword search engine for Firefox & Chrome
+============================================
+
+In Firefox: 
+
+* Right-click the text field in https://johannesbuchner.github.io/ads-reference-search/
+* "Add a Keyword for this Search"
+* Set the keyword to "ads"
+* Done! Enter into your search bar "ads Lastname et al. (2017)" (without quotes)
+
+In Chrome:
+
+* go to Settings -> Manage search engines or chrome://settings/searchEngines
+* url: https://johannesbuchner.github.io/ads-reference-search/?q=%s
+* keyword: ads
+* Done! Enter into your search bar "ads Lastname et al. (2017)" (without quotes)
 
 Licence
 =========

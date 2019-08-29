@@ -1,5 +1,5 @@
-Firefox Keyword Search by Reference for ADS
-=============================================
+Search by Reference for ADS in Firefox & Chrome
+=================================================
 
 **This project provides "Lastname (year)" searches for ADS**
 
@@ -21,11 +21,8 @@ Alas, the new ADS does not support this (yet).
 Usage
 ======
 
-Enter your reference at https://johannesbuchner.github.io/ads-reference-search/ 
-It translates it into a ADS query and redirects you to ADS.
-
-Keyword search engine for Firefox & Chrome
-============================================
+Set up search engine keyword
+------------------------------
 
 In Firefox: 
 
@@ -41,13 +38,17 @@ In Chrome:
 * keyword: ads
 * Done! Enter into your search bar "ads Lastname et al. (2017)" (without quotes)
 
-Licence
-=========
+Manually:
 
-BSD 2-clause. Code here: https://github.com/JohannesBuchner/ads-reference-search/blob/gh-pages/index.html
+Enter your reference at https://johannesbuchner.github.io/ads-reference-search/ 
 
 How does it work?
 ==================
 
 Javascript parses the input and redirects you to the proper ADS search query. No data is stored on any servers, code is executed in your browser.
+
+Licence
+=========
+
+BSD 2-clause. Code here: https://github.com/JohannesBuchner/ads-reference-search/blob/gh-pages/index.html
 

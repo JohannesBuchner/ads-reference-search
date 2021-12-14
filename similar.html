@@ -6,7 +6,7 @@
 <script lang="text/javascript">
 /*
 
-Copyright 2019 Johannes Buchner
+Copyright 2019-2021 Johannes Buchner
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -18,9 +18,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 */
 function getADSquery(orcid, name) {
-	query = 'similar(orcid:' + orcid + ' author:"^' + name + '") - references(orcid:' + orcid + ') - orcid:' + orcid;
-	params = '&rows=200&sort=score desc%2C bibcode desc'
-	location.href = "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query) + params;
+	query = 'similar(orcid:' + orcid + ' author:"^' + name + '") AND NOT references(orcid:' + orcid + ') AND NOT orcid:' + orcid;
+	location.href = "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
+}
+function getADSreferences(orcid, name) {
+	query = 'similar(references(orcid:' + orcid + ' author:"^' + name + '")) AND NOT references(orcid:' + orcid + ' author:"^' + name + '") AND NOT orcid:' + orcid;
+	location.href = "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
 }
 
 </script>
@@ -28,16 +31,25 @@ function getADSquery(orcid, name) {
 </head>
 <body>
 
-<h1>Find interesting papers</h1>
-
-<p>Uses <a href="https://ui.adsabs.harvard.edu/search/">ADS</a>.</p>
-
+<h1>Find papers interesting to you</h1>
+<p>
+Uses your publications to find similar and complementary papers.
+</p>
 <form>
-<label><input type="text" name="q" id="q"/> &lt;-- enter ORCID</label><br/>
-<label><input type="text" name="n" id="n"/> &lt;-- enter last name</label><br/>
-<input type="button" value="Discover" onclick='getADSquery(document.getElementById("q").value, document.getElementById("n").value);' />
+<label><input type="text" name="q" id="q" value="0000-0003-0426-6634" /> &lt;-- enter ORCID</label><br/>
+<label><input type="text" name="n" id="n" value="Buchner" /> &lt;-- enter last name</label><br/>
+<p>Then:</p>
+<input type="button" value="Discover related work" onclick='getADSquery(document.getElementById("q").value, document.getElementById("n").value);' />
+<input type="button" value="Discover new references" onclick='getADSreferences(document.getElementById("q").value, document.getElementById("n").value);' />
+<input type="button" value="Calculate Career" onclick='alert("Do not let your success be defined by a number!\n\nImpact to the world and contributions to the field cannot be measured with citations.\n\nYou are awesome! Carry on doing new and great things!")' />
+<p>
+	These buttons forward you to <a href="https://ui.adsabs.harvard.edu/search/">ADS</a>.
+</p>
 </form>
 
+<hr/>
+<p>
 A project by Johannes Buchner. Code at <a href="https://github.com/JohannesBuchner/ads-reference-search">https://github.com/JohannesBuchner/ads-reference-search</a>.
+</p>
 
 </html>

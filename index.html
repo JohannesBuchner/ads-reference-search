@@ -20,7 +20,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 */
 function getADSquery(arg) {
-  year = /\([0-9]{4}\)/.exec(arg);
+  const thisyear = new Date().getFullYear();
+  var year = /\([0-9]{4}\)/.exec(arg);
   var query = "";
   if (!year) {
     year = / [0-9]{4}/.exec(arg);
@@ -60,7 +61,8 @@ function getADSquery(arg) {
   }
   
   if (year) {
-    if (parseInt(year) < 2014) {
+    // if older than the last 3 years, should be published
+    if (parseInt(year) + 3 < thisyear) {
       query = query + " +property:refereed";
     }
   }

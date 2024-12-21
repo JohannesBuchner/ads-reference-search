@@ -37,11 +37,12 @@ function getADSquery(arg) {
     if (year) {
        arg = arg.replace(year[0], "").trim();
        v = parseInt(year[0].substr(1));
-       if (v < 25) {
-          query = query + " year:20" + year[0].substr(1);
+       if (v < 30) {
+          year = "20" + year[0].substr(1)
        } else {
-          query = query + " year:19" + year[0].substr(1);
+          year = "19" + year[0].substr(1)
        }
+       query = query + " year:" + year;
     }
   }
   arg = arg.replace("et al.", "").replace("et al", "").replace("+", "").trim().trim(",").trim();

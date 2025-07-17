@@ -53,7 +53,7 @@ function getADSquery(arg) {
     author = authors[i].trim().replace(' ', '-')
     if (author && author.length > 0) {
       if(i == 0) {
-         query = query + ' author:"^' + author + '"';
+         query = query + ' first_author:"' + author + '"';
       } else {
          query = query + ' author:"' + author + '"';
       }

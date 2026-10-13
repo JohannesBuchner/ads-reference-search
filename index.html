@@ -20,7 +20,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 */
 function getADSquery(arg) {
-  year = /\([0-9]{4}\)/.exec(arg);
+  const thisyear = new Date().getFullYear();
+  var year = /\([0-9]{4}\)/.exec(arg);
   var query = "";
   if (!year) {
     year = / [0-9]{4}/.exec(arg);
@@ -37,11 +38,12 @@ function getADSquery(arg) {
     if (year) {
        arg = arg.replace(year[0], "").trim();
        v = parseInt(year[0].substr(1));
-       if (v < 25) {
-          query = query + " year:20" + year[0].substr(1);
+       if (v < 30) {
+          year = "20" + year[0].substr(1)
        } else {
-          query = query + " year:19" + year[0].substr(1);
+          year = "19" + year[0].substr(1)
        }
+       query = query + " year:" + year;
     }
   }
   arg = arg.replace("et al.", "").replace("et al", "").replace("+", "").trim().trim(",").trim();
@@ -51,7 +53,7 @@ function getADSquery(arg) {
     author = authors[i].trim().replace(' ', '-')
     if (author && author.length > 0) {
       if(i == 0) {
-         query = query + ' author:"^' + author + '"';
+         query = query + ' first_author:"' + author + '"';
       } else {
          query = query + ' author:"' + author + '"';
       }
@@ -59,7 +61,8 @@ function getADSquery(arg) {
   }
   
   if (year) {
-    if (parseInt(year) < 2014) {
+    // if older than the last 3 years, should be published
+    if (parseInt(year) + 3 < thisyear) {
       query = query + " +property:refereed";
     }
   }

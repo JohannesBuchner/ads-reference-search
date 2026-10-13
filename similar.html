@@ -20,11 +20,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 function getADSquery(orcid, name) {
 	query = 'similar(orcid:' + orcid + ' author:"^' + name + '") AND NOT references(orcid:' + orcid + ') AND NOT orcid:' + orcid;
-	location.href = "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
+	location.href = "https://scixplorer.org/search?q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
 }
 function getADSreferences(orcid, name) {
 	query = 'similar(references(orcid:' + orcid + ' author:"^' + name + '")) AND NOT references(orcid:' + orcid + ' author:"^' + name + '") AND NOT orcid:' + orcid;
-	location.href = "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
+	location.href = "https://scixplorer.org/search?q=" + encodeURIComponent(query) + '&rows=200&sort=score desc%2C bibcode desc';
 }
 
 </script>
@@ -44,7 +44,7 @@ Uses your publications to find similar and complementary papers.
 <input type="button" value="Discover new references" onclick='getADSreferences(document.getElementById("q").value, document.getElementById("n").value);' />
 <input type="button" value="Calculate Career" onclick='alert("Do not let your success be defined by a number!\n\nImpact to the world and contributions to the field cannot be measured with citations.\n\nYou are awesome! Carry on doing new and great things!")' />
 <p>
-	These buttons forward you to <a href="https://ui.adsabs.harvard.edu/search/">ADS</a>.
+	These buttons forward you to <a href="https://scixplorer.org/search/">SciX</a> (new new ADS).
 </p>
 </form>
 

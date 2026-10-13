@@ -66,7 +66,7 @@ function getADSquery(arg) {
       query = query + " +property:refereed";
     }
   }
-  return "https://ui.adsabs.harvard.edu/search/q=" + encodeURIComponent(query.trim());
+  return "https://scixplorer.org/search?q=" + encodeURIComponent(query.trim());
 }
 
 var testqueries = [
@@ -89,13 +89,13 @@ var testqueries = [
 </head>
 <body>
 
-<h1>ADS search by reference</h1>
+<h1>SciX search by reference</h1>
 
-<p>Searches the <a href="https://ui.adsabs.harvard.edu/search/">new ADS</a> by Lastname (year) reference strings.</p>
+<p>Searches <a href="https://scixplorer.org/">SciX</a> by Lastname (year) reference strings.</p>
 
 <form>
 <input type="text" name="q" />
-<input type="submit" value="Look up in ADS" />
+<input type="submit" value="Look up in SciX" />
 </form>
 
 <p>Install as a search engine for quick &amp; convenient access from the browser bar:
@@ -110,7 +110,7 @@ var testqueries = [
 var url = location.search;
 if (url.startsWith("?q=")) {
    url = getADSquery(decodeURIComponent(url.substr(3).replace(/\+/g, ' ')));
-   document.write("<p>Redirecting to <a href='" + url + "'>corresponding ADS query</a></p>");
+   document.write("<p>Redirecting to <a href='" + url + "'>corresponding SciX query</a></p>");
    window.location.replace(url);
 } else {
    document.write("<h3>Examples:</h3><ul>");
